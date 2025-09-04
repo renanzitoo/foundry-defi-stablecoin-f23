@@ -87,7 +87,7 @@ contract DSCEngineTest is Test {
     // Price Feed Tests //
     //////////////////////
 
-    function testGetUsdValue() external {
+    function testGetUsdValue() external view {
         uint256 ethAmount = 15e18;
         // 15 ETH * $2000/ETH = $30,000
         uint256 expectedUsd = 30000e18;
@@ -95,7 +95,7 @@ contract DSCEngineTest is Test {
         assertEq(expectedUsd, actualUsd);
     }
 
-    function testGetTokenAmountFromUsd() public {
+    function testGetTokenAmountFromUsd() public view {
         uint256 usdAmount = 100 ether;
         uint256 expectedTokenAmount = 0.05 ether;
         uint256 actualTokenAmount = dsce.getTokenAmountFromUsd(weth, usdAmount);
